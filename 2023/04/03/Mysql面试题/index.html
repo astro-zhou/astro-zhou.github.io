@@ -16,102 +16,102 @@
   <meta name="author" content="astro-zhou">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Mysql面试题[toc] 一 Mysql索引001 Mysql如何实现的索引机制？MySQL中索引分三类：B+树索引、Hash索引、全文索引 002 InnoDB索引与MyISAM索引实现的区别是什么？ MyISAM的索引方式都是非聚簇的，与InnoDB包含1个聚簇索引是不同的。  在InnoDB存储引擎中，我们只需要根据主键值对聚簇索引进行一次查找就能找到对应的记录，而在MyISAM中却需要进">
+    <meta name="description" content="Mysql面试题一 Mysql索引001 Mysql如何实现的索引机制？MySQL中索引分三类：B+树索引、Hash索引、全文索引 002 InnoDB索引与MyISAM索引实现的区别是什么？ MyISAM的索引方式都是非聚簇的，与InnoDB包含1个聚簇索引是不同的。  在InnoDB存储引擎中，我们只需要根据主键值对聚簇索引进行一次查找就能找到对应的记录，而在MyISAM中却需要进行一次回表操">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mysql 面试题">
 <meta property="og:url" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
 <meta property="og:site_name" content="astro-zhou">
-<meta property="og:description" content="Mysql面试题[toc] 一 Mysql索引001 Mysql如何实现的索引机制？MySQL中索引分三类：B+树索引、Hash索引、全文索引 002 InnoDB索引与MyISAM索引实现的区别是什么？ MyISAM的索引方式都是非聚簇的，与InnoDB包含1个聚簇索引是不同的。  在InnoDB存储引擎中，我们只需要根据主键值对聚簇索引进行一次查找就能找到对应的记录，而在MyISAM中却需要进">
+<meta property="og:description" content="Mysql面试题一 Mysql索引001 Mysql如何实现的索引机制？MySQL中索引分三类：B+树索引、Hash索引、全文索引 002 InnoDB索引与MyISAM索引实现的区别是什么？ MyISAM的索引方式都是非聚簇的，与InnoDB包含1个聚簇索引是不同的。  在InnoDB存储引擎中，我们只需要根据主键值对聚簇索引进行一次查找就能找到对应的记录，而在MyISAM中却需要进行一次回表操">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/image-20220709183820796.png">
-<meta property="og:image" content="http://example.com/image-20220709071051043.png">
-<meta property="og:image" content="http://example.com/image-20220709071958145.png">
-<meta property="og:image" content="http://example.com/image-20220709072138395.png">
-<meta property="og:image" content="http://example.com/image-20220709073749310.png">
-<meta property="og:image" content="http://example.com/image-20220709074801215.png">
-<meta property="og:image" content="http://example.com/1557565-20220429110413866-1755798300.png">
-<meta property="og:image" content="http://example.com/image-20220709080648851.png">
-<meta property="og:image" content="http://example.com/image-20220709130937991.png">
-<meta property="og:image" content="http://example.com/image-20220709134109900-16668534893372.png">
-<meta property="og:image" content="http://example.com/image-20220709080648851.png">
-<meta property="og:image" content="http://example.com/image-20220709130937991.png">
-<meta property="og:image" content="http://example.com/image-20220708235509010.png">
-<meta property="og:image" content="http://example.com/image-20220708233351509.png">
-<meta property="og:image" content="http://example.com/image-20220708235725124.png">
-<meta property="og:image" content="http://example.com/image-20220708231622916.png">
-<meta property="og:image" content="http://example.com/image-20221027154142690.png">
-<meta property="og:image" content="http://example.com/image-20221027154120483.png">
-<meta property="og:image" content="http://example.com/image-20220709002223882.png">
-<meta property="og:image" content="http://example.com/image-20220709002554341.png">
-<meta property="og:image" content="http://example.com/image-20220709004531952.png">
-<meta property="og:image" content="http://example.com/image-20220712002627554.png">
-<meta property="og:image" content="http://example.com/image-20221028155608009.png">
-<meta property="og:image" content="http://example.com/29f7e85dea17e100b38b450d9949a330.png">
-<meta property="og:image" content="http://example.com/image-20220627113443003.png">
-<meta property="og:image" content="http://example.com/image-20220702002430362.png">
-<meta property="og:image" content="http://example.com/%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709183820796.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709071051043.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709071958145.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709072138395.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709073749310.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709074801215.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/1557565-20220429110413866-1755798300.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709080648851.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709130937991.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709134109900-16668534893372.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709080648851.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709130937991.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220708235509010.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220708233351509.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220708235725124.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220708231622916.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20221027154142690.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20221027154120483.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709002223882.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709002554341.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709004531952.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712002627554.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20221028155608009.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/29f7e85dea17e100b38b450d9949a330.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220627113443003.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220702002430362.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B.png">
 <meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/b44f857a9bdedcd6a2d53a3971fae7db.png">
-<meta property="og:image" content="http://example.com/image-20220703164220030.png">
-<meta property="og:image" content="http://example.com/image-20220703170334348.png">
-<meta property="og:image" content="http://example.com/16701032-f8547d110ba34135.png">
-<meta property="og:image" content="http://example.com/2021110810071449.png">
-<meta property="og:image" content="http://example.com/16701032-f8547d110ba34135.png">
-<meta property="og:image" content="http://example.com/v2-a48d01fd3478ba4d68207fc7ce757658_r.jpg">
-<meta property="og:image" content="http://example.com/image-20220710101402666.png">
-<meta property="og:image" content="http://example.com/image-20220711122444380.png">
-<meta property="og:image" content="http://example.com/image-20220710000757241.png">
-<meta property="og:image" content="http://example.com/image-20220710000950098.png">
-<meta property="og:image" content="http://example.com/image-20220711123408605.png">
-<meta property="og:image" content="http://example.com/image-20220710001512891.png">
-<meta property="og:image" content="http://example.com/image-20220710001930811.png">
-<meta property="og:image" content="http://example.com/image-20220710002145309.png">
-<meta property="og:image" content="http://example.com/image-20220710002444782.png">
-<meta property="og:image" content="http://example.com/image-20220710002604613.png">
-<meta property="og:image" content="http://example.com/image-20220710003049587.png">
-<meta property="og:image" content="http://example.com/image-20220710110732730.png">
-<meta property="og:image" content="http://example.com/image-20220710153504037.png">
-<meta property="og:image" content="http://example.com/image-20220710153921679.png">
-<meta property="og:image" content="http://example.com/image-20220710155650935.png">
-<meta property="og:image" content="http://example.com/image-20220712065946659.png">
-<meta property="og:image" content="http://example.com/image-20220712065815768.png">
-<meta property="og:image" content="http://example.com/image-20220712065922882.png">
-<meta property="og:image" content="http://example.com/image-20220712070042666.png">
-<meta property="og:image" content="http://example.com/image-20220712070727963.png">
-<meta property="og:image" content="http://example.com/image-20220712070851089.png">
-<meta property="og:image" content="http://example.com/image-20220712070944090.png">
-<meta property="og:image" content="http://example.com/image-20220711125730163.png">
-<meta property="og:image" content="http://example.com/image-20220712071057817.png">
-<meta property="og:image" content="http://example.com/image-20220712071138320.png">
-<meta property="og:image" content="http://example.com/image-20220711132125501.png">
-<meta property="og:image" content="http://example.com/image-20220711131831315.png">
-<meta property="og:image" content="http://example.com/image-20220710142152514.png">
-<meta property="og:image" content="http://example.com/image-20220710130548971.png">
-<meta property="og:image" content="http://example.com/image-20220709211819944.png">
-<meta property="og:image" content="http://example.com/image-20220710131916240.png">
-<meta property="og:image" content="http://example.com/image-20220709212722601.png">
-<meta property="og:image" content="http://example.com/image-20220709231638201.png">
-<meta property="og:image" content="http://example.com/image-20220709215122017.png">
-<meta property="og:image" content="http://example.com/image-20220710181100102.png">
-<meta property="og:image" content="http://example.com/image-20220710172607190.png">
-<meta property="og:image" content="http://example.com/image-20220710172926396.png">
-<meta property="og:image" content="http://example.com/image-20220712071716131.png">
-<meta property="og:image" content="http://example.com/image-20220712072055566.png">
-<meta property="og:image" content="http://example.com/image-20220710180257692.png">
-<meta property="og:image" content="http://example.com/image-20220712012108900.png">
-<meta property="og:image" content="http://example.com/image-20220710182356817.png">
-<meta property="og:image" content="http://example.com/image-20220710182524371.png">
-<meta property="og:image" content="http://example.com/image-20221106160437906.png">
-<meta property="og:image" content="http://example.com/111.jpg">
-<meta property="og:image" content="http://example.com/222.jpg">
-<meta property="og:image" content="http://example.com/25723371_16499183725J8d.png">
-<meta property="og:image" content="http://example.com/image-20221106171251532.png">
-<meta property="og:image" content="http://example.com/image-20221106171945037.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220703164220030.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220703170334348.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/16701032-f8547d110ba34135.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/2021110810071449.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/16701032-f8547d110ba34135.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/v2-a48d01fd3478ba4d68207fc7ce757658_r.jpg">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710101402666.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220711122444380.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710000757241.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710000950098.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220711123408605.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710001512891.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710001930811.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710002145309.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710002444782.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710002604613.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710003049587.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710110732730.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710153504037.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710153921679.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710155650935.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712065946659.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712065815768.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712065922882.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712070042666.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712070727963.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712070851089.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712070944090.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220711125730163.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712071057817.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712071138320.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220711132125501.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220711131831315.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710142152514.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710130548971.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709211819944.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710131916240.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709212722601.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709231638201.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709215122017.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710181100102.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710172607190.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710172926396.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712071716131.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712072055566.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710180257692.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712012108900.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710182356817.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710182524371.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20221106160437906.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/111.jpg">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/222.jpg">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/25723371_16499183725J8d.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20221106171251532.png">
+<meta property="og:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20221106171945037.png">
 <meta property="article:published_time" content="2023-04-03T03:13:14.000Z">
-<meta property="article:modified_time" content="2023-04-03T03:16:04.598Z">
+<meta property="article:modified_time" content="2023-04-03T03:18:58.349Z">
 <meta property="article:author" content="astro-zhou">
 <meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/image-20220709183820796.png">
+<meta name="twitter:image" content="http://example.com/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709183820796.png">
   
   
   
@@ -383,8 +383,7 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Mysql面试题"><a href="#Mysql面试题" class="headerlink" title="Mysql面试题"></a>Mysql面试题</h1><p>[toc]</p>
-<h2 id="一-Mysql索引"><a href="#一-Mysql索引" class="headerlink" title="一 Mysql索引"></a>一 Mysql索引</h2><h3 id="001-Mysql如何实现的索引机制？"><a href="#001-Mysql如何实现的索引机制？" class="headerlink" title="001 Mysql如何实现的索引机制？"></a>001 Mysql如何实现的索引机制？</h3><p>MySQL中索引分三类：B+树索引、Hash索引、全文索引</p>
+                <h1 id="Mysql面试题"><a href="#Mysql面试题" class="headerlink" title="Mysql面试题"></a>Mysql面试题</h1><h2 id="一-Mysql索引"><a href="#一-Mysql索引" class="headerlink" title="一 Mysql索引"></a>一 Mysql索引</h2><h3 id="001-Mysql如何实现的索引机制？"><a href="#001-Mysql如何实现的索引机制？" class="headerlink" title="001 Mysql如何实现的索引机制？"></a>001 Mysql如何实现的索引机制？</h3><p>MySQL中索引分三类：B+树索引、Hash索引、全文索引</p>
 <h4 id="002-InnoDB索引与MyISAM索引实现的区别是什么？"><a href="#002-InnoDB索引与MyISAM索引实现的区别是什么？" class="headerlink" title="002 InnoDB索引与MyISAM索引实现的区别是什么？"></a>002 InnoDB索引与MyISAM索引实现的区别是什么？</h4><ul>
 <li><p><code>MyISAM的索引方式都是非聚簇的，与InnoDB包含1个聚簇索引是不同的。</code></p>
 <ul>
@@ -403,7 +402,7 @@
 <li><p>InnoDB要求表必须有主键 （ MyISAM可以没有 ）。如果没有显式指定，则MySQL系统会自动选择一个可以非空且唯一标识数据记录的列作为主键。如果不存在这种列，则MySQL自动为InnoDB表生成一个隐含字段作为主键，这个字段长度为6个字节，类型为长整型。</p>
 </li>
 </ul>
-<p><img src="/image-20220709183820796.png" srcset="/img/loading.gif" lazyload alt="image-20220709183820796"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709183820796.png" srcset="/img/loading.gif" lazyload alt="image-20220709183820796"></p>
 </li>
 </ul>
 <h4 id="003-一个表中如果没有创建索引，那么还会创建B-树吗？"><a href="#003-一个表中如果没有创建索引，那么还会创建B-树吗？" class="headerlink" title="003 一个表中如果没有创建索引，那么还会创建B+树吗？"></a>003 一个表中如果没有创建索引，那么还会创建B+树吗？</h4><p>会</p>
@@ -419,7 +418,7 @@
 
 
 <p>index_demo表的简化的行格式示意图如下：</p>
-<p><img src="/image-20220709071051043.png" srcset="/img/loading.gif" lazyload alt="image-20220709071051043"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709071051043.png" srcset="/img/loading.gif" lazyload alt="image-20220709071051043"></p>
 <p>我们只在示意图里展示记录的这几个部分：</p>
 <ul>
 <li><code>record_type：</code>表示记录的类型， 0是普通记录、 2是最小记录、 3 是最大记录、1是B+树非叶子节点记录。</li>
@@ -428,16 +427,16 @@
 <li><code>其他信息：</code>除了上述3种信息以外的所有信息，包括其他隐藏列的值以及记录的额外信息。</li>
 </ul>
 <p>将<code>其他信息</code>项暂时去掉并把它竖起来的效果就是这样：</p>
-<p><img src="/image-20220709071958145.png" srcset="/img/loading.gif" lazyload alt="image-20220709071958145"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709071958145.png" srcset="/img/loading.gif" lazyload alt="image-20220709071958145"></p>
 <p>把一些记录放到页里的示意图就是（这里一页就是一个磁盘块，代表一次IO）：</p>
-<p><img src="/image-20220709072138395.png" srcset="/img/loading.gif" lazyload alt="image-20220709072138395"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709072138395.png" srcset="/img/loading.gif" lazyload alt="image-20220709072138395"></p>
 <p>name age sex</p>
 <p><code>MySQL InnoDB的默认的页大小是16KB</code>，因此数据存储在磁盘中，可能会占用多个数据页。如果各个页中的记录没有规律，我们就不得不依次遍历所有的数据页。<code>如果我们想快速的定位到需要查找的记录在哪些数据页中</code>，我们可以这样做 ：</p>
 <ul>
 <li>下一个数据页中用户记录的主键值必须大于上一个页中用户记录的主键值</li>
 <li>给所有的页建立目录项</li>
 </ul>
-<p><img src="/image-20220709073749310.png" srcset="/img/loading.gif" lazyload alt="image-20220709073749310"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709073749310.png" srcset="/img/loading.gif" lazyload alt="image-20220709073749310"></p>
 <p>以<code>页28</code>为例，它对应<code>目录项2</code> ，这个目录项中包含着该页的<code>页号28</code>以及该页中用户记录的<code>最小主键值 5</code>。我们只需要把几个目录项在物理存储器上连续存储（比如：数组），就可以实现根据主键值快速查找某条记录的功能了。<code>比如：查找主键值为 20 的记录，具体查找过程分两步：</code></p>
 <ol>
 <li>先从目录项中根据二分法快速确定出<code>主键值为20的记录在目录项3中</code>（因为 12 ≤ 20 &lt; 209 ），<code>对应页9</code>。 </li>
@@ -445,8 +444,8 @@
 </ol>
 <p>至此，针对数据页做的简易目录就搞定了。这个目录有一个别名，称为<code>索引</code> 。 </p>
 <h4 id="InnoDB中的索引方案"><a href="#InnoDB中的索引方案" class="headerlink" title="InnoDB中的索引方案"></a>InnoDB中的索引方案</h4><p>我们新分配一个编号为30的页来专门存储<code>目录项记录</code>，页10、28、9、20专门存储<code>用户记录</code>： </p>
-<p><img src="/image-20220709074801215.png" srcset="/img/loading.gif" lazyload alt="image-20220709073749310"></p>
-<p><img src="/1557565-20220429110413866-1755798300.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709074801215.png" srcset="/img/loading.gif" lazyload alt="image-20220709073749310"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/1557565-20220429110413866-1755798300.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p><code>目录项记录和普通的用户记录的不同点：</code> </p>
 <ul>
 <li>目录项记录 的 record_type 值是1，而 普通用户记录 的 record_type 值是0。</li>
@@ -459,7 +458,7 @@
 </ol>
 <p><strong>更复杂的情况如下：</strong></p>
 <p>我们生成了一个存储更高级目录项的 页33 ，这个页中的两条记录分别代表页30和页32，如果用户记录的主键值在 <code>[1, 320)</code> 之间，则到页30中查找更详细的目录项记录，如果主键值 不小于320 的话，就到页32中查找更详细的目录项记录。<strong>这个数据结构，它的名称是 B+树 。</strong> </p>
-<p><img src="/image-20220709080648851.png" srcset="/img/loading.gif" lazyload alt="image-20220709080648851"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709080648851.png" srcset="/img/loading.gif" lazyload alt="image-20220709080648851"></p>
 <h4 id="005聚簇索引与非聚簇索引b-树实现有什么区别？"><a href="#005聚簇索引与非聚簇索引b-树实现有什么区别？" class="headerlink" title="005	聚簇索引与非聚簇索引b+树实现有什么区别？"></a>005	聚簇索引与非聚簇索引b+树实现有什么区别？</h4><h5 id="聚簇索引"><a href="#聚簇索引" class="headerlink" title="聚簇索引"></a>聚簇索引</h5><p><strong>特点：</strong></p>
 <ul>
 <li><p><code>索引和数据保存在同一个B+树中</code></p>
@@ -494,7 +493,7 @@
 <h5 id="非聚簇索引"><a href="#非聚簇索引" class="headerlink" title="非聚簇索引"></a>非聚簇索引</h5><p><strong>（二级索引、辅助索引）</strong></p>
 <p><code>聚簇索引</code>，只能在搜索条件是<code>主键值</code>时才发挥作用，因为B+树中的数据都是按照主键进行排序的，如果我们想以别的列作为搜索条件，那么需要创建<code>非聚簇索引</code>。</p>
 <p><strong>例如，</strong><code>以c2列作为搜索条件</code>，那么需要使<code>用c2列创建一棵B+树</code>，如下所示：</p>
-<p><img src="/image-20220709130937991.png" srcset="/img/loading.gif" lazyload alt="image-20220709130937991"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709130937991.png" srcset="/img/loading.gif" lazyload alt="image-20220709130937991"></p>
 <p><strong>这个B+树与聚簇索引有几处不同：</strong></p>
 <ul>
 <li><p><code>页内的记录</code>是按照从<code>c2列</code>的大小顺序排成一个<code>单向链表</code> 。</p>
@@ -507,8 +506,8 @@
 </li>
 </ul>
 <p><strong>一张表可以有多个非聚簇索引：</strong></p>
-<p><img src="/image-20220709134109900-16668534893372.png" srcset="/img/loading.gif" lazyload alt="image-20220709134109900"></p>
-<h4 id="006说一下B-树中聚簇索引的查找（匹配）逻辑"><a href="#006说一下B-树中聚簇索引的查找（匹配）逻辑" class="headerlink" title="006	说一下B+树中聚簇索引的查找（匹配）逻辑"></a>006	说一下B+树中聚簇索引的查找（匹配）逻辑</h4><p><img src="/image-20220709080648851.png" srcset="/img/loading.gif" lazyload alt="image-20220709080648851"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709134109900-16668534893372.png" srcset="/img/loading.gif" lazyload alt="image-20220709134109900"></p>
+<h4 id="006说一下B-树中聚簇索引的查找（匹配）逻辑"><a href="#006说一下B-树中聚簇索引的查找（匹配）逻辑" class="headerlink" title="006	说一下B+树中聚簇索引的查找（匹配）逻辑"></a>006	说一下B+树中聚簇索引的查找（匹配）逻辑</h4><p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709080648851.png" srcset="/img/loading.gif" lazyload alt="image-20220709080648851"></p>
 <h4 id="007说一下B-树中非聚簇索引的查找（匹配）逻辑"><a href="#007说一下B-树中非聚簇索引的查找（匹配）逻辑" class="headerlink" title="007	说一下B+树中非聚簇索引的查找（匹配）逻辑"></a>007	说一下B+树中非聚簇索引的查找（匹配）逻辑</h4><p><strong>例如：</strong>根据c2列的值查找c2&#x3D;4的记录，查找过程如下：</p>
 <ol>
 <li>根据<code>根页面44</code>定位到<code>页42</code>（因为<code>2 ≤  4 &lt; 9</code>）</li>
@@ -517,7 +516,7 @@
 <li>但是这个B+树的叶子节点<code>只存储了c2和c1（主键）</code>两个列，所以我们必须<code>再根据主键值去聚簇索引中再查找</code>一遍完整的用户记录。</li>
 <li>like 张%</li>
 </ol>
-<p><img src="/image-20220709130937991.png" srcset="/img/loading.gif" lazyload alt="image-20220709130937991"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709130937991.png" srcset="/img/loading.gif" lazyload alt="image-20220709130937991"></p>
 <h4 id="008平衡二叉树，红黑树，B树和B-树的区别是什么？都有哪些应用场景？"><a href="#008平衡二叉树，红黑树，B树和B-树的区别是什么？都有哪些应用场景？" class="headerlink" title="008	平衡二叉树，红黑树，B树和B+树的区别是什么？都有哪些应用场景？"></a>008	平衡二叉树，红黑树，B树和B+树的区别是什么？都有哪些应用场景？</h4><p>平衡二叉树</p>
 <ul>
 <li>基础数据结构</li>
@@ -533,20 +532,20 @@
 <li>它是一棵空树或它的左右两个子树的高度差的绝对值不超过1</li>
 <li>并且左右两个子树都是一棵平衡二叉树。</li>
 </ul>
-<p><img src="/image-20220708235509010.png" srcset="/img/loading.gif" lazyload alt="image-20220708235509010"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220708235509010.png" srcset="/img/loading.gif" lazyload alt="image-20220708235509010"></p>
 <p>AVL的生成演示：<a target="_blank" rel="noopener" href="https://www.cs.usfca.edu/~galles/visualization/AVLtree.html">https://www.cs.usfca.edu/~galles/visualization/AVLtree.html</a></p>
 <p><strong>AVL的问题</strong></p>
 <p>众所周知，IO操作的效率很低，在大量数据存储中，查询时我们不能一下子将所有数据加载到内存中，只能逐节点加载（一个节点一次IO）。如果我们利用二叉树作为索引结构，<code>那么磁盘的IO次数和索引树的高度是相关的</code>。平衡二叉树由于树深度过大而造成磁盘IO读写过于频繁，进而导致效率低下。</p>
-<p><img src="/image-20220708233351509.png" srcset="/img/loading.gif" lazyload alt="image-20220708233351509"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220708233351509.png" srcset="/img/loading.gif" lazyload alt="image-20220708233351509"></p>
 <p>为了提高查询效率，就需要 减少磁盘IO数 。<code>为了减少磁盘IO的次数，就需要尽量降低树的高度</code> ，需要把原来“瘦高”的树结构变的“矮胖”，树的每层的分叉越多越好。针对同样的数据，如果我们把二叉树改成 三叉树：</p>
-<p><img src="/image-20220708235725124.png" srcset="/img/loading.gif" lazyload alt="image-20220708235725124"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220708235725124.png" srcset="/img/loading.gif" lazyload alt="image-20220708235725124"></p>
 <p>上面的例子中，我们将二叉树变成了三叉树，降低了树的高度。如果能够在一个节点中存放更多的数据，我们还可以进一步减少节点的数量，从而进一步降低树的高度。这就是<code>多叉树</code>。</p>
 <p><strong>普通树的问题</strong></p>
 <ul>
 <li>左子树全部为空，从形式上看，更像一个单链表，不能发挥BST的优势。</li>
 <li><code>解决方案：平衡二叉树(AVL)</code></li>
 </ul>
-<p><img src="/image-20220708231622916.png" srcset="/img/loading.gif" lazyload alt="image-20220708231622916"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220708231622916.png" srcset="/img/loading.gif" lazyload alt="image-20220708231622916"></p>
 <p>红黑树</p>
 <ul>
 <li>hashmap存储</li>
@@ -554,9 +553,9 @@
 <li>分为红黑节点</li>
 </ul>
 <p>在这个棵严格的平台树上又进化为“红黑树”{是一个非严格的平衡树 左子树与右子树的高度差不能超过1}，红黑树的长子树只要不超过短子树的两倍即可！</p>
-<p><img src="/image-20221027154142690.png" srcset="/img/loading.gif" lazyload alt="image-20221027154142690"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20221027154142690.png" srcset="/img/loading.gif" lazyload alt="image-20221027154142690"></p>
 <p>当再次插入7的时候，这棵树就会发生旋转</p>
-<p><img src="/image-20221027154120483.png" srcset="/img/loading.gif" lazyload alt="image-20221027154120483"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20221027154120483.png" srcset="/img/loading.gif" lazyload alt="image-20221027154120483"></p>
 <p><strong>B+</strong> <strong>树和</strong> <strong>B</strong> <strong>树的差异：</strong></p>
 <ul>
 <li>B+树中非叶子节点的关键字也会同时存在在子节点中，并且是在子节点中所有关键字的最大值（或最小）。</li>
@@ -584,7 +583,7 @@
 <h4 id="012什么是2-3树-2-3-4树？"><a href="#012什么是2-3树-2-3-4树？" class="headerlink" title="012	什么是2-3树 2-3-4树？"></a>012	什么是2-3树 2-3-4树？</h4><p>多叉树（multiway tree）允许<code>每个节点可以有更多的数据项和更多的子节点</code>。2-3树，2-3-4树就是多叉树，多叉树通过<code>重新组织节点，减少节点数量，增加分叉，减少树的高度</code>，能对二叉树进行优化。</p>
 <p><strong>2-3树</strong></p>
 <p>下面2-3树就是一颗多叉树</p>
-<p><img src="/image-20220709002223882.png" srcset="/img/loading.gif" lazyload alt="image-20220709002223882"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709002223882.png" srcset="/img/loading.gif" lazyload alt="image-20220709002223882"></p>
 <p>2-3树具有如下特点：</p>
 <ul>
 <li>2-3树的所有叶子节点都在同一层。</li>
@@ -593,9 +592,9 @@
 <li>2-3树是由二节点和三节点构成的树。</li>
 <li>对于三节点的子树的值大小仍然遵守 BST 二叉排序树的规则。</li>
 </ul>
-<p><img src="/image-20220709002554341.png" srcset="/img/loading.gif" lazyload alt="image-20220709002554341"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709002554341.png" srcset="/img/loading.gif" lazyload alt="image-20220709002554341"></p>
 <p><strong>2-3-4树</strong></p>
-<p><img src="/image-20220709004531952.png" srcset="/img/loading.gif" lazyload alt="image-20220709004531952"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709004531952.png" srcset="/img/loading.gif" lazyload alt="image-20220709004531952"></p>
 <h3 id="013-为什么官方建议使用自增长主键作为索引？（说一下自增主键和字符串类型主键的区别和影响）"><a href="#013-为什么官方建议使用自增长主键作为索引？（说一下自增主键和字符串类型主键的区别和影响）" class="headerlink" title="013 为什么官方建议使用自增长主键作为索引？（说一下自增主键和字符串类型主键的区别和影响）"></a>013 为什么官方建议使用自增长主键作为索引？（说一下自增主键和字符串类型主键的区别和影响）</h3><ul>
 <li>自增主键能够维持底层数据顺序写入</li>
 <li>读取可以由b+树的二分查找定位</li>
@@ -676,7 +675,7 @@
 <p>where c3&#x3D;? </p>
 <p>全职匹配</p>
 <p>最左前缀</p>
-<p><img src="/image-20220712002627554.png" srcset="/img/loading.gif" lazyload alt="image-20220712002627554"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712002627554.png" srcset="/img/loading.gif" lazyload alt="image-20220712002627554"></p>
 <h4 id="029-复合索引创建时字段顺序不一样使用效果一样吗？"><a href="#029-复合索引创建时字段顺序不一样使用效果一样吗？" class="headerlink" title="029 复合索引创建时字段顺序不一样使用效果一样吗？"></a>029 复合索引创建时字段顺序不一样使用效果一样吗？</h4><p>我们也可以同时以多个列的大小作为排序规则，也就是同时为多个列建立索引，比方说我们想让B+树按照 <code>c2和c3列</code> 的大小进行排序，这个包含两层含义：</p>
 <ul>
 <li>先把各个记录和页按照<code>c2</code>列进行排序。</li>
@@ -891,8 +890,8 @@
 <p>最好还是给上默认值</p>
 <p>数字类型的给0，字符串给个空串“”，</p>
 <p>参考上一题</p>
-<h2 id="二-MySQL-内部技术架构"><a href="#二-MySQL-内部技术架构" class="headerlink" title="二 MySQL 内部技术架构"></a>二 MySQL 内部技术架构</h2><p><img src="/image-20221028155608009.png" srcset="/img/loading.gif" lazyload alt="image-20221028155608009"></p>
-<h3 id="047-Mysql内部支持缓存查询吗？"><a href="#047-Mysql内部支持缓存查询吗？" class="headerlink" title="047 Mysql内部支持缓存查询吗？"></a><img src="/29f7e85dea17e100b38b450d9949a330.png" srcset="/img/loading.gif" lazyload alt="img">047 Mysql内部支持缓存查询吗？</h3><p>当MySQL接收到客户端的查询SQL之后，仅仅只需要对其进行相应的权限验证之后，就会通过Query Cache来查找结果，甚至都不需要经过Optimizer模块进行执行计划的分析优化，更不需要发生任何存储引擎的交互</p>
+<h2 id="二-MySQL-内部技术架构"><a href="#二-MySQL-内部技术架构" class="headerlink" title="二 MySQL 内部技术架构"></a>二 MySQL 内部技术架构</h2><p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20221028155608009.png" srcset="/img/loading.gif" lazyload alt="image-20221028155608009"></p>
+<h3 id="047-Mysql内部支持缓存查询吗？"><a href="#047-Mysql内部支持缓存查询吗？" class="headerlink" title="047 Mysql内部支持缓存查询吗？"></a><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/29f7e85dea17e100b38b450d9949a330.png" srcset="/img/loading.gif" lazyload alt="img">047 Mysql内部支持缓存查询吗？</h3><p>当MySQL接收到客户端的查询SQL之后，仅仅只需要对其进行相应的权限验证之后，就会通过Query Cache来查找结果，甚至都不需要经过Optimizer模块进行执行计划的分析优化，更不需要发生任何存储引擎的交互</p>
 <p>mysql5.7支持内部缓存，8.0之后就废弃掉了</p>
 <h4 id="048-mysql8为何废弃掉查询缓存？"><a href="#048-mysql8为何废弃掉查询缓存？" class="headerlink" title="048 	mysql8为何废弃掉查询缓存？"></a>048 	mysql8为何废弃掉查询缓存？</h4><p>缓存的意义在于快速查询提升系统性能，可以灵活控制缓存的一致性</p>
 <p>mysql缓存的限制</p>
@@ -905,7 +904,7 @@
 <li>在表的结构或数据发生改变时，基于该表相关cache立即全部失效。</li>
 </ol>
 <h4 id="049-替代方案是什么？"><a href="#049-替代方案是什么？" class="headerlink" title="049 	替代方案是什么？"></a>049 	替代方案是什么？</h4><p>应用层组织缓存，最简单的是使用redis，ehcached等</p>
-<h3 id="050-Mysql内部有哪些核心模块组成，作用是什么？"><a href="#050-Mysql内部有哪些核心模块组成，作用是什么？" class="headerlink" title="050 Mysql内部有哪些核心模块组成，作用是什么？"></a>050 Mysql内部有哪些核心模块组成，作用是什么？</h3><p><img src="/image-20220627113443003.png" srcset="/img/loading.gif" lazyload alt="image-20220627113443003"></p>
+<h3 id="050-Mysql内部有哪些核心模块组成，作用是什么？"><a href="#050-Mysql内部有哪些核心模块组成，作用是什么？" class="headerlink" title="050 Mysql内部有哪些核心模块组成，作用是什么？"></a>050 Mysql内部有哪些核心模块组成，作用是什么？</h3><p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220627113443003.png" srcset="/img/loading.gif" lazyload alt="image-20220627113443003"></p>
 <p><strong>Connectors（客户端）</strong></p>
 <p>MySQL服务器之外的客户端程序，与具体的语言相关，例如Java中的JDBC，图形用户界面SQLyog等。<code>本质上都是在TCP连接上通过MySQL协议和MySQL服务器进行通信。</code></p>
 <p><strong>MySQL Server（服务器）</strong></p>
@@ -953,7 +952,7 @@
 <ul>
 <li>典型的解析树如下：</li>
 </ul>
-<p><img src="/image-20220702002430362.png" srcset="/img/loading.gif" lazyload alt="image-20220702002430362"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220702002430362.png" srcset="/img/loading.gif" lazyload alt="image-20220702002430362"></p>
 <p><strong>Optimizer：查询优化器：</strong></p>
 <ul>
 <li>SQL语句在语法解析后、查询前会使用查询优化器对查询进行优化，<code>确定SQL语句的执行路径，生成一个执行计划</code>。</li>
@@ -969,7 +968,7 @@
 <p><strong>存储层</strong></p>
 <p>所有的数据、数据库、表的定义、表的每一行的内容、索引，都是存在<code>文件系统</code> 上，以文件的方式存在，并完成与存储引擎的交互。</p>
 <h3 id="051-一条sql发送给mysql后，内部是如何执行的？（说一下-MySQL-执行一条查询语句的内部执行过程？）"><a href="#051-一条sql发送给mysql后，内部是如何执行的？（说一下-MySQL-执行一条查询语句的内部执行过程？）" class="headerlink" title="051 一条sql发送给mysql后，内部是如何执行的？（说一下 MySQL 执行一条查询语句的内部执行过程？）"></a>051 一条sql发送给mysql后，内部是如何执行的？（说一下 MySQL 执行一条查询语句的内部执行过程？）</h3><p>1.5、查询流程说明</p>
-<p><img src="/%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B.png" srcset="/img/loading.gif" lazyload alt="image-20220627141453944"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B.png" srcset="/img/loading.gif" lazyload alt="image-20220627141453944"></p>
 <p><strong>首先，</strong><code>MySQL客户端通过协议与MySQL服务器建连接，通过SQL接口发送SQL语句，先检查查询缓存，如果命中，直接返回结果，否则进行语句解析。</code>也就是说，在解析查询之前，服务器会先访问查询缓存，如果某个查询结果已经位于缓存中，服务器就不会再对查询进行解析、优化、以及执行。它仅仅将缓存中的结果返回给用户即可，这将大大提高系统的性能。</p>
 <p><strong>接下来，</strong><code>MySQL解析器通过关键字将SQL语句进行解析，并生成一棵对应的解析树，</code>解析器使用MySQL语法规则验证和解析SQL语句。例如，它将验证是否使用了错误的关键字，或者使用关键字的顺序是否正确，引号能否前后匹配等；<code>预处理器则根据MySQL规则进一步检查解析树是否合法，</code>例如，这里将检查数据表和数据列是否存在，还会解析名字和别名，看是否有歧义等。<code>然后预处理器会进行查询重写，生成一棵新解析树。</code></p>
 <p><strong>接下来，</strong><code>查询优化器将解析树转化成执行计划。</code>MySQL优化程序会对我们的语句做一些优化，如子查询转换为连接、表达式简化等等。优化的结果就是生成一个执行计划，这个执行计划表明了应该使用哪些索引执行查询，以及表之间的连接顺序是啥样，等等。我们可以使用EXPLAIN语句来查看某个语句的执行计划。</p>
@@ -984,11 +983,11 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SHOW</span> ENGINES;<br></code></pre></td></tr></table></figure>
 
 <p>下面的结果表示MySQL中默认使用的存储引擎是InnoDB，支持事务，行锁，外键，支持分布式事务(XA)，支持保存点(回滚)</p>
-<p><img src="/image-20220703164220030.png" srcset="/img/loading.gif" lazyload alt="image-20220703164220030"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220703164220030.png" srcset="/img/loading.gif" lazyload alt="image-20220703164220030"></p>
 <p>也可以通过以下语句查看默认的存储引擎：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SHOW</span> VARIABLES <span class="hljs-keyword">LIKE</span> <span class="hljs-string">&#x27;%default_storage_engine%&#x27;</span>;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220703170334348.png" srcset="/img/loading.gif" lazyload alt="image-20220703170334348"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220703170334348.png" srcset="/img/loading.gif" lazyload alt="image-20220703170334348"></p>
 <h3 id="055-Mysql8-0自带哪些存储引擎？分别是做什么的？"><a href="#055-Mysql8-0自带哪些存储引擎？分别是做什么的？" class="headerlink" title="055 Mysql8.0自带哪些存储引擎？分别是做什么的？"></a>055 Mysql8.0自带哪些存储引擎？分别是做什么的？</h3><p><code>1. InnoDB存储引擎</code></p>
 <ul>
 <li><p>InnoDB是MySQL的默认事务型引擎，它被设计用来<code>处理大量的短期(short-lived)事务</code>。可以确保事务的完整提交(Commit)和回滚(Rollback)。</p>
@@ -1053,7 +1052,7 @@
 </ul>
 <h3 id="056-MySQL-存储引擎架构了解吗？"><a href="#056-MySQL-存储引擎架构了解吗？" class="headerlink" title="056 MySQL 存储引擎架构了解吗？"></a>056 MySQL 存储引擎架构了解吗？</h3><p><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/innodb-architecture.html">https://dev.mysql.com/doc/refman/5.7/en/innodb-architecture.html</a></p>
 <p>下面是官方的InnoDB引擎结构图，主要分为内存结构和磁盘结构两大部分。</p>
-<p><img src="/16701032-f8547d110ba34135.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/16701032-f8547d110ba34135.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p><strong>内存区域</strong></p>
 <p><strong>Buffer Pool</strong>:在InnoDB访问表记录和索引时会在Buffer Pool的页中缓存，以后使用可以减少磁盘IO操作，提升效率。主要用来缓存热的数据页和索引页。</p>
 <p><strong>Log Buffer</strong>：用来缓存redolog</p>
@@ -1246,7 +1245,7 @@
 <h4 id="085当前读和快照读分别是什么？"><a href="#085当前读和快照读分别是什么？" class="headerlink" title="085	当前读和快照读分别是什么？"></a>085	当前读和快照读分别是什么？</h4><p>当前读 ：在锁定读（使用锁隔离事物）的时候读到的是最新版本的数据</p>
 <p>快照读：可重复读（repeatable-read）下 mvcc生效读取的是数据的快照，并不是最新版本的数据（未提交事物的数据）</p>
 <h3 id="086-什么是XA协议？"><a href="#086-什么是XA协议？" class="headerlink" title="086 什么是XA协议？"></a>086 什么是XA协议？</h3><p><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/8.0/en/xa.html">https://dev.mysql.com/doc/refman/8.0/en/xa.html</a></p>
-<p><img src="/2021110810071449.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/2021110810071449.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
 <ul>
 <li><p>AP（Application Program）：应用程序，定义事务边界（定义事务开始和结束）并访问事务边界内的资源。</p>
 </li>
@@ -1420,7 +1419,7 @@
 <p><strong>2、sync_binlog&#x3D;1</strong> 的时候，表示每次提交事务都会执行 fsync 写入到磁盘 ；</p>
 <p><strong>3、sync_binlog的值大于1</strong> 的时候，表示每次提交事务都 先写到page cach，只有等到积累了N个事务之后才fsync 写入到磁盘，同样在此设置下Mysql 崩溃的时候会有丢失N个事务日志的风险。</p>
 <p>很显然三种模式下，sync_binlog&#x3D;1 是强一致的选择，选择0或者N的情况下在极端情况下就会有丢失日志的风险，具体选择什么模式还是得看系统对于一致性的要求。</p>
-<p><img src="/16701032-f8547d110ba34135.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/16701032-f8547d110ba34135.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p><strong>innodb_flush_log_at_trx_commit</strong></p>
 <figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs lasso">取值<span class="hljs-number">0</span>：每秒（一秒钟内提交的事务）写入磁盘  每秒触发一次缓存日志回写磁盘操作，并调用操作系统fsync刷新IO缓存。<br>取值<span class="hljs-number">1</span>：有事务提交就立即刷盘     每次提交事务都立即调用操作系统fsync刷新IO缓存。<br>取值<span class="hljs-number">2</span>：每次事务提交 都写给操作系统 由系统接管什么时候写入磁盘   每次都把redo <span class="hljs-keyword">log</span>写到系统的page <span class="hljs-keyword">cache</span>中，由系统接管什么时候写入磁盘<br></code></pre></td></tr></table></figure>
 
@@ -1453,7 +1452,7 @@
 <li><p><strong>commit</strong>：binlog写入log buffer，并fsync持久化到磁盘，在binlog事务中记录2PC的XID，同时在redolog事务打上commit标识</p>
 </li>
 </ul>
-<p><img src="/v2-a48d01fd3478ba4d68207fc7ce757658_r.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/v2-a48d01fd3478ba4d68207fc7ce757658_r.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
 <h3 id="100-MySQL的binlog有有几种录入格式？分别有什么区别？"><a href="#100-MySQL的binlog有有几种录入格式？分别有什么区别？" class="headerlink" title="100 MySQL的binlog有有几种录入格式？分别有什么区别？"></a>100 MySQL的binlog有有几种录入格式？分别有什么区别？</h3><p>logbin格式：</p>
 <ul>
 <li>binlog_format&#x3D;STATEMENT（默认）：数据操作的时间，同步时不一致 每一条会修改数据的sql语句会记录到binlog中。优点是并不需要记录每一 条sql语句和每一行的 数据变化，减少了binlog日志量，节约IO，提高性能。缺点是在某些情况下会导致 master-slave 中的数据不一致( 如sleep()函数， last_insert_id()，以及user-defined functions(udf)等会 出	现 问题)</li>
@@ -1729,37 +1728,37 @@
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t1;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220710101402666.png" srcset="/img/loading.gif" lazyload alt="image-20220710101402666"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710101402666.png" srcset="/img/loading.gif" lazyload alt="image-20220710101402666"></p>
 <ul>
 <li><strong>多表关联：</strong>t1为驱动表，t2为被驱动表。</li>
 </ul>
 <p><code>注意：</code>内连接时，MySQL性能优化器会自动判断哪个表是驱动表，哪个表示被驱动表，和书写的顺序无关</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t1 <span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> t2;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220711122444380.png" srcset="/img/loading.gif" lazyload alt="image-20220711122444380"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220711122444380.png" srcset="/img/loading.gif" lazyload alt="image-20220711122444380"></p>
 <h4 id="id"><a href="#id" class="headerlink" title="id"></a>id</h4><p>表示查询中执行select子句或操作表的顺序</p>
 <ul>
 <li><strong>id相同：</strong>执行顺序由上至下</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t1, t2, t3;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220710000757241.png" srcset="/img/loading.gif" lazyload alt="image-20220710000757241"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710000757241.png" srcset="/img/loading.gif" lazyload alt="image-20220710000757241"></p>
 <ul>
 <li><strong>id不同：</strong>如果是子查询，id的序号会递增，id值越大优先级越高，越先被执行</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> t1.id <span class="hljs-keyword">FROM</span> t1 <span class="hljs-keyword">WHERE</span> t1.id <span class="hljs-operator">=</span>(<br>  <span class="hljs-keyword">SELECT</span> t2.id <span class="hljs-keyword">FROM</span> t2 <span class="hljs-keyword">WHERE</span> t2.id <span class="hljs-operator">=</span>(<br>    <span class="hljs-keyword">SELECT</span> t3.id <span class="hljs-keyword">FROM</span> t3 <span class="hljs-keyword">WHERE</span> t3.content <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;t3_434&#x27;</span><br>  )<br>);<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220710000950098.png" srcset="/img/loading.gif" lazyload alt="image-20220710000950098"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710000950098.png" srcset="/img/loading.gif" lazyload alt="image-20220710000950098"></p>
 <p><code>注意：</code>查询优化器可能对涉及子查询的语句进行优化，<code>转为连接查询</code></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t1 <span class="hljs-keyword">WHERE</span> content <span class="hljs-keyword">IN</span> (<span class="hljs-keyword">SELECT</span> content <span class="hljs-keyword">FROM</span> t2 <span class="hljs-keyword">WHERE</span> content <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;a&#x27;</span>);<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220711123408605.png" srcset="/img/loading.gif" lazyload alt="image-20220711123408605"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220711123408605.png" srcset="/img/loading.gif" lazyload alt="image-20220711123408605"></p>
 <ul>
 <li><strong>id为NULL：</strong>最后执行</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t1 <span class="hljs-keyword">UNION</span> <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t2;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220710001512891.png" srcset="/img/loading.gif" lazyload alt="image-20220710001512891"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710001512891.png" srcset="/img/loading.gif" lazyload alt="image-20220710001512891"></p>
 <p><strong>小结：</strong></p>
 <ul>
 <li>id如果相同，可以认为是一组，从上往下顺序执行</li>
@@ -1772,56 +1771,56 @@
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t1;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220710001930811.png" srcset="/img/loading.gif" lazyload alt="image-20220710001930811"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710001930811.png" srcset="/img/loading.gif" lazyload alt="image-20220710001930811"></p>
 <ul>
 <li><strong>PRIMARY：</strong>主查询。查询中若包含子查询，则最外层查询被标记为PRIMARY。</li>
 <li><strong>SUBQUERY：</strong>子查询。在SELECT或WHERE列表中包含了子查询。</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t3 <span class="hljs-keyword">WHERE</span> id <span class="hljs-operator">=</span> ( <span class="hljs-keyword">SELECT</span> id <span class="hljs-keyword">FROM</span> t2 <span class="hljs-keyword">WHERE</span> content<span class="hljs-operator">=</span> <span class="hljs-string">&#x27;a&#x27;</span>);<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220710002145309.png" srcset="/img/loading.gif" lazyload alt="image-20220710002145309"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710002145309.png" srcset="/img/loading.gif" lazyload alt="image-20220710002145309"></p>
 <ul>
 <li><strong>DEPENDENT SUBQUREY：</strong>如果包含了子查询，并且查询语句不能被优化器转换为连接查询，并且子查询是<code>相关子查询（子查询基于外部数据列）</code>，则子查询就是DEPENDENT SUBQUREY。</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t3 <span class="hljs-keyword">WHERE</span> id <span class="hljs-operator">=</span> ( <span class="hljs-keyword">SELECT</span> id <span class="hljs-keyword">FROM</span> t2 <span class="hljs-keyword">WHERE</span> content <span class="hljs-operator">=</span> t3.content);<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220710002444782.png" srcset="/img/loading.gif" lazyload alt="image-20220710002444782"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710002444782.png" srcset="/img/loading.gif" lazyload alt="image-20220710002444782"></p>
 <ul>
 <li><strong>UNCACHEABLE SUBQUREY：</strong>表示这个subquery的查询要受到外部系统变量的影响</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t3 <br><span class="hljs-keyword">WHERE</span> id <span class="hljs-operator">=</span> ( <span class="hljs-keyword">SELECT</span> id <span class="hljs-keyword">FROM</span> t2 <span class="hljs-keyword">WHERE</span> content <span class="hljs-operator">=</span> @<span class="hljs-variable">@character</span>_set_server);<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220710002604613.png" srcset="/img/loading.gif" lazyload alt="image-20220710002604613"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710002604613.png" srcset="/img/loading.gif" lazyload alt="image-20220710002604613"></p>
 <ul>
 <li><strong>UNION：</strong>对于包含UNION或者UNION ALL的查询语句，除了最左边的查询是PRIMARY，其余的查询都是UNION。</li>
 <li><strong>UNION RESULT：</strong>UNION会对查询结果进行查询去重，MYSQL会使用临时表来完成UNION查询的去重工作，针对这个临时表的查询就是”UNION RESULT”。</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <br><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t3 <span class="hljs-keyword">WHERE</span> id <span class="hljs-operator">=</span> <span class="hljs-number">1</span> <br><span class="hljs-keyword">UNION</span>  <br><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t2 <span class="hljs-keyword">WHERE</span> id <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220710003049587.png" srcset="/img/loading.gif" lazyload alt="image-20220710003049587"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710003049587.png" srcset="/img/loading.gif" lazyload alt="image-20220710003049587"></p>
 <ul>
 <li><strong>DEPENDENT UNION：</strong>子查询中的UNION或者UNION ALL，除了最左边的查询是DEPENDENT SUBQUREY，其余的查询都是DEPENDENT UNION。</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t1 <span class="hljs-keyword">WHERE</span> content <span class="hljs-keyword">IN</span><br>(<br><span class="hljs-keyword">SELECT</span> content <span class="hljs-keyword">FROM</span> t2 <br><span class="hljs-keyword">UNION</span> <br><span class="hljs-keyword">SELECT</span> content <span class="hljs-keyword">FROM</span> t3<br>);<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220710110732730.png" srcset="/img/loading.gif" lazyload alt="image-20220710110732730"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710110732730.png" srcset="/img/loading.gif" lazyload alt="image-20220710110732730"></p>
 <ul>
 <li><strong>DERIVED：</strong>在包含<code>派生表（子查询在from子句中）</code>的查询中，MySQL会递归执行这些子查询，把结果放在临时表里。</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> (<br>   <span class="hljs-keyword">SELECT</span> content, <span class="hljs-built_in">COUNT</span>(<span class="hljs-operator">*</span>) <span class="hljs-keyword">AS</span> c <span class="hljs-keyword">FROM</span> t1 <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> content<br>) <span class="hljs-keyword">AS</span> derived_t1 <span class="hljs-keyword">WHERE</span> c <span class="hljs-operator">&gt;</span> <span class="hljs-number">1</span>;<br></code></pre></td></tr></table></figure>
 
 <p>这里的<code>&lt;derived2&gt;</code>就是在id为2的查询中产生的派生表。</p>
-<p><img src="/image-20220710153504037.png" srcset="/img/loading.gif" lazyload alt="image-20220710153504037"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710153504037.png" srcset="/img/loading.gif" lazyload alt="image-20220710153504037"></p>
 <p><strong>补充：</strong>MySQL在处理带有派生表的语句时，优先尝试把派生表和外层查询进行合并，如果不行，再把派生表<code>物化掉（执行子查询，并把结果放入临时表）</code>，然后执行查询。下面的例子就是就是将派生表和外层查询进行合并的例子：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> (<span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t1 <span class="hljs-keyword">WHERE</span> content <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;t1_832&#x27;</span>) <span class="hljs-keyword">AS</span> derived_t1;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220710153921679.png" srcset="/img/loading.gif" lazyload alt="image-20220710153921679"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710153921679.png" srcset="/img/loading.gif" lazyload alt="image-20220710153921679"></p>
 <ul>
 <li><strong>MATERIALIZED：</strong>优化器对于包含子查询的语句，<code>如果选择将子查询物化后再与外层查询连接查询</code>，该子查询的类型就是MATERIALIZED。如下的例子中，查询优化器先将子查询转换成物化表，然后将t1和物化表进行连接查询。</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t1 <span class="hljs-keyword">WHERE</span> content <span class="hljs-keyword">IN</span> (<span class="hljs-keyword">SELECT</span> content <span class="hljs-keyword">FROM</span> t2);<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220710155650935.png" srcset="/img/loading.gif" lazyload alt="image-20220710155650935"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710155650935.png" srcset="/img/loading.gif" lazyload alt="image-20220710155650935"></p>
 <h4 id="partitions"><a href="#partitions" class="headerlink" title="partitions"></a>partitions</h4><p>代表分区表中的命中情况，非分区表，该项为NULL</p>
 <h4 id="type-☆"><a href="#type-☆" class="headerlink" title="type ☆"></a>type <strong>☆</strong></h4><blockquote>
 <p><strong>说明：</strong></p>
@@ -1835,72 +1834,72 @@
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t1;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220712065946659.png" srcset="/img/loading.gif" lazyload alt="image-20220712065946659"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712065946659.png" srcset="/img/loading.gif" lazyload alt="image-20220712065946659"></p>
 <ul>
 <li><strong>index：</strong>当使用<code>覆盖索引</code>，但需要扫描全部的索引记录时</li>
 </ul>
 <p><code>覆盖索引：</code>如果能通过读取索引就可以得到想要的数据，那就不需要读取用户记录，或者不用再做回表操作了。一个索引包含了满足查询结果的数据就叫做覆盖索引。 </p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 只需要读取聚簇索引部分的非叶子节点，就可以得到id的值，不需要查询叶子节点</span><br>EXPLAIN <span class="hljs-keyword">SELECT</span> id <span class="hljs-keyword">FROM</span> t1;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220712065815768.png" srcset="/img/loading.gif" lazyload alt="image-20220712065815768"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712065815768.png" srcset="/img/loading.gif" lazyload alt="image-20220712065815768"></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 只需要读取二级索引，就可以在二级索引中获取到想要的数据，不需要再根据叶子节点中的id做回表操作</span><br>EXPLAIN <span class="hljs-keyword">SELECT</span> id, deptId <span class="hljs-keyword">FROM</span> t_emp;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220712065922882.png" srcset="/img/loading.gif" lazyload alt="image-20220712065922882"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712065922882.png" srcset="/img/loading.gif" lazyload alt="image-20220712065922882"></p>
 <ul>
 <li><strong>range：</strong>只检索给定范围的行，使用一个索引来选择行。key 列显示使用了哪个索引，一般就是在你的where语句中出现了between、&lt;、&gt;、in等的查询。这种范围扫描索引扫描比全表扫描要好，因为它只需要开始于索引的某一点，而结束于另一点，不用扫描全部索引。</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t1 <span class="hljs-keyword">WHERE</span> id <span class="hljs-keyword">IN</span> (<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>);<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220712070042666.png" srcset="/img/loading.gif" lazyload alt="image-20220712070042666"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712070042666.png" srcset="/img/loading.gif" lazyload alt="image-20220712070042666"></p>
 <ul>
 <li><strong>ref：</strong>通过普通二级索引列与常量进行等值匹配时</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t_emp <span class="hljs-keyword">WHERE</span> deptId <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220712070727963.png" srcset="/img/loading.gif" lazyload alt="image-20220712070727963"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712070727963.png" srcset="/img/loading.gif" lazyload alt="image-20220712070727963"></p>
 <ul>
 <li><strong>eq_ref：</strong>连接查询时通过主键或不允许NULL值的唯一二级索引列进行等值匹配时</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t1, t2 <span class="hljs-keyword">WHERE</span> t1.id <span class="hljs-operator">=</span> t2.id;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220712070851089.png" srcset="/img/loading.gif" lazyload alt="image-20220712070851089"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712070851089.png" srcset="/img/loading.gif" lazyload alt="image-20220712070851089"></p>
 <ul>
 <li><strong>const：</strong>根据<code>主键</code>或者<code>唯一二级索引</code>列与<code>常数</code>进行匹配时</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t1 <span class="hljs-keyword">WHERE</span> id <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220712070944090.png" srcset="/img/loading.gif" lazyload alt="image-20220712070944090"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712070944090.png" srcset="/img/loading.gif" lazyload alt="image-20220712070944090"></p>
 <ul>
 <li><strong>system：</strong>MyISAM引擎中，当表中只有一条记录时。<code>（这是所有type的值中性能最高的场景）</code></li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> t(i <span class="hljs-type">int</span>) Engine<span class="hljs-operator">=</span>MyISAM;<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> t <span class="hljs-keyword">VALUES</span>(<span class="hljs-number">1</span>);<br>EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220711125730163.png" srcset="/img/loading.gif" lazyload alt="image-20220711125730163"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220711125730163.png" srcset="/img/loading.gif" lazyload alt="image-20220711125730163"></p>
 <p><strong>其他不太常见的类型（了解）：</strong></p>
 <ul>
 <li><strong>index_subquery</strong>：利用<code>普通索引</code>来关联子查询，针对包含有IN子查询的查询语句。<code>content1是普通索引字段</code></li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t1 <span class="hljs-keyword">WHERE</span> content <span class="hljs-keyword">IN</span> (<span class="hljs-keyword">SELECT</span> content1 <span class="hljs-keyword">FROM</span> t4 <span class="hljs-keyword">WHERE</span> t1.content <span class="hljs-operator">=</span> t4.content2) <span class="hljs-keyword">OR</span> content <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;a&#x27;</span>;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220712071057817.png" srcset="/img/loading.gif" lazyload alt="image-20220712071057817"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712071057817.png" srcset="/img/loading.gif" lazyload alt="image-20220712071057817"></p>
 <ul>
 <li><strong>unique_subquery</strong>：类似于index_subquery，利用<code>唯一索引</code>来关联子查询。<code>t2的id是主键，也可以理解为唯一的索引字段</code></li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t1 <span class="hljs-keyword">WHERE</span> id <span class="hljs-keyword">IN</span> (<span class="hljs-keyword">SELECT</span> id <span class="hljs-keyword">FROM</span> t2 <span class="hljs-keyword">WHERE</span> t1.content <span class="hljs-operator">=</span> t2.content) <span class="hljs-keyword">OR</span> content <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;a&#x27;</span>;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220712071138320.png" srcset="/img/loading.gif" lazyload alt="image-20220712071138320"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712071138320.png" srcset="/img/loading.gif" lazyload alt="image-20220712071138320"></p>
 <ul>
 <li><strong>index_merge</strong>：在查询过程中需要<code>多个索引组合使用</code>，通常出现在有 or 的关键字的sql中。</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t_emp <span class="hljs-keyword">WHERE</span> deptId <span class="hljs-operator">=</span> <span class="hljs-number">1</span> <span class="hljs-keyword">OR</span> id <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220711132125501.png" srcset="/img/loading.gif" lazyload alt="image-20220711132125501"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220711132125501.png" srcset="/img/loading.gif" lazyload alt="image-20220711132125501"></p>
 <ul>
 <li><strong>ref_or_null</strong>：当对普通二级索引进行等值匹配，且该索引列的值也可以是NULL值时。</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t_emp <span class="hljs-keyword">WHERE</span> deptId <span class="hljs-operator">=</span> <span class="hljs-number">1</span> <span class="hljs-keyword">OR</span> deptId <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NULL</span>;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220711131831315.png" srcset="/img/loading.gif" lazyload alt="image-20220711131831315"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220711131831315.png" srcset="/img/loading.gif" lazyload alt="image-20220711131831315"></p>
 <ul>
 <li><strong>fulltext：</strong>全文索引。<code>一般通过搜索引擎实现，这里我们不展开。</code></li>
 </ul>
@@ -1912,7 +1911,7 @@
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> id <span class="hljs-keyword">FROM</span> t1 <span class="hljs-keyword">WHERE</span> id <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220710142152514.png" srcset="/img/loading.gif" lazyload alt="image-20220710142152514"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710142152514.png" srcset="/img/loading.gif" lazyload alt="image-20220710142152514"></p>
 <h4 id="key-len-☆"><a href="#key-len-☆" class="headerlink" title="key_len ☆"></a>key_len <strong>☆</strong></h4><p>表示索引使用的字节数，根据这个值可以判断索引的使用情况，<code>检查是否充分利用了索引，针对联合索引值越大越好。</code></p>
 <p><strong>如何计算：</strong></p>
 <ol>
@@ -1923,58 +1922,58 @@
 </ol>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 创建索引</span><br><span class="hljs-keyword">CREATE</span> INDEX idx_age_name <span class="hljs-keyword">ON</span> t_emp(age, `name`);<br><span class="hljs-comment">-- 测试1</span><br>EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t_emp <span class="hljs-keyword">WHERE</span> age <span class="hljs-operator">=</span> <span class="hljs-number">30</span> <span class="hljs-keyword">AND</span> `name` <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;ab%&#x27;</span>;<br><span class="hljs-comment">-- 测试2</span><br>EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t_emp <span class="hljs-keyword">WHERE</span> age <span class="hljs-operator">=</span> <span class="hljs-number">30</span>;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220710130548971.png" srcset="/img/loading.gif" lazyload alt="image-20220710130548971"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710130548971.png" srcset="/img/loading.gif" lazyload alt="image-20220710130548971"></p>
 <h4 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h4><p>显示与key中的索引进行比较的列或常量。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- ref=atguigudb.t1.id   关联查询时出现，t2表和t1表的哪一列进行关联</span><br>EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t1, t2 <span class="hljs-keyword">WHERE</span> t1.id <span class="hljs-operator">=</span> t2.id;<br><br><span class="hljs-comment">-- ref=const  与索引列进行等值比较的东西是啥，const表示一个常数</span><br>EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t_emp <span class="hljs-keyword">WHERE</span> age <span class="hljs-operator">=</span> <span class="hljs-number">30</span>;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220709211819944.png" srcset="/img/loading.gif" lazyload alt="image-20220709211819944"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709211819944.png" srcset="/img/loading.gif" lazyload alt="image-20220709211819944"></p>
 <h4 id="rows-☆"><a href="#rows-☆" class="headerlink" title="rows ☆"></a>rows <strong>☆</strong></h4><p>MySQL认为它执行查询时必须检查的行数。值越小越好。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 如果是全表扫描，rows的值就是表中数据的估计行数</span><br>EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t_emp <span class="hljs-keyword">WHERE</span> empno <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;10001&#x27;</span>;<br><br><span class="hljs-comment">-- 如果是使用索引查询，rows的值就是预计扫描索引记录行数</span><br>EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t_emp <span class="hljs-keyword">WHERE</span> deptId <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220710131916240.png" srcset="/img/loading.gif" lazyload alt="image-20220710131916240"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710131916240.png" srcset="/img/loading.gif" lazyload alt="image-20220710131916240"></p>
 <h4 id="filtered"><a href="#filtered" class="headerlink" title="filtered"></a>filtered</h4><p>最后查询出来的数据占所有服务器端检查行数（rows）的<code>百分比</code>。值越大越好。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 先根据二级索引deptId找到数据的主键，有3条记录满足条件，</span><br><span class="hljs-comment">-- 再根据主键进行回表，最终找到3条记录，有100%的记录满足条件</span><br>EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t_emp <span class="hljs-keyword">WHERE</span> deptId <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br><br><span class="hljs-comment">-- 这个例子如果name列是索引列则 filtered = 100 否则filtered = 10(全表扫描)</span><br>EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t_emp <span class="hljs-keyword">WHERE</span> `name` <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;风清扬&#x27;</span>;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220709212722601.png" srcset="/img/loading.gif" lazyload alt="image-20220709212722601"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709212722601.png" srcset="/img/loading.gif" lazyload alt="image-20220709212722601"></p>
 <h4 id="Extra-☆"><a href="#Extra-☆" class="headerlink" title="Extra ☆"></a>Extra <strong>☆</strong></h4><p>包含不适合在其他列中显示但十分重要的额外信息。通过这些额外信息来<code>理解MySQL到底将如何执行当前的查询语句</code>。MySQL提供的额外信息有好几十个，这里只挑介绍比较重要的介绍。</p>
 <ul>
 <li><strong>Impossible WHERE</strong>：where子句的值总是false</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t_emp <span class="hljs-keyword">WHERE</span> <span class="hljs-number">1</span> <span class="hljs-operator">!=</span> <span class="hljs-number">1</span>;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220709231638201.png" srcset="/img/loading.gif" lazyload alt="image-20220709231638201"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709231638201.png" srcset="/img/loading.gif" lazyload alt="image-20220709231638201"></p>
 <ul>
 <li><strong>Using where：</strong>使用了where，但在where上有字段没有创建索引</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t_emp <span class="hljs-keyword">WHERE</span> `name` <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;风清扬&#x27;</span>;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220709215122017.png" srcset="/img/loading.gif" lazyload alt="image-20220709215122017"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220709215122017.png" srcset="/img/loading.gif" lazyload alt="image-20220709215122017"></p>
 <ul>
 <li><strong>Using temporary：</strong>使了用临时表保存中间结果</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span> content <span class="hljs-keyword">FROM</span> t1;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220710181100102.png" srcset="/img/loading.gif" lazyload alt="image-20220710181100102"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710181100102.png" srcset="/img/loading.gif" lazyload alt="image-20220710181100102"></p>
 <ul>
 <li><strong>Using filesort：</strong></li>
 </ul>
 <p>在对查询结果中的记录进行排序时，是可以使用索引的，如下所示：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t1 <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> id;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220710172607190.png" srcset="/img/loading.gif" lazyload alt="image-20220710172607190"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710172607190.png" srcset="/img/loading.gif" lazyload alt="image-20220710172607190"></p>
 <p>如果排序操作无法使用到索引，只能在内存中（记录较少时）或者磁盘中（记录较多时）进行排序（filesort），如下所示：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t1 <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> content;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220710172926396.png" srcset="/img/loading.gif" lazyload alt="image-20220710172926396"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710172926396.png" srcset="/img/loading.gif" lazyload alt="image-20220710172926396"></p>
 <ul>
 <li><strong>Using index：</strong>使用了覆盖索引，表示直接访问索引就足够获取到所需要的数据，不需要通过索引回表</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> id, content1 <span class="hljs-keyword">FROM</span> t4;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220712071716131.png" srcset="/img/loading.gif" lazyload alt="image-20220712071716131"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712071716131.png" srcset="/img/loading.gif" lazyload alt="image-20220712071716131"></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> id <span class="hljs-keyword">FROM</span> t1;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220712072055566.png" srcset="/img/loading.gif" lazyload alt="image-20220712072055566"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712072055566.png" srcset="/img/loading.gif" lazyload alt="image-20220712072055566"></p>
 <ul>
 <li><strong>Using index condition：</strong>叫作  <code>Index Condition Pushdown Optimization （索引下推优化）</code><ul>
 <li><code>如果没有索引下推（ICP）</code>，那么MySQL在存储引擎层找到满足<code>content1 &gt; &#39;z&#39;</code>条件的第一条二级索引记录。<code>主键值进行回表</code>，返回完整的记录给server层，server层再判断其他的搜索条件是否成立。如果成立则保留该记录，否则跳过该记录，然后向存储引擎层要下一条记录。</li>
@@ -1984,19 +1983,19 @@
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- content1列上有索引idx_content1</span><br>EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t4 <span class="hljs-keyword">WHERE</span> content1 <span class="hljs-operator">&gt;</span> <span class="hljs-string">&#x27;z&#x27;</span> <span class="hljs-keyword">AND</span> content1 <span class="hljs-keyword">LIKE</span> <span class="hljs-string">&#x27;%a&#x27;</span>;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220710180257692.png" srcset="/img/loading.gif" lazyload alt="image-20220710180257692"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710180257692.png" srcset="/img/loading.gif" lazyload alt="image-20220710180257692"></p>
 <p><strong>注意：</strong>如果这里的查询条件<code>只有content1 &gt; &#39;z&#39;</code>，那么找到满足条件的索引后也会进行一次索引下推的操作，判断content1 &gt; ‘z’是否成立（这是源码中为了编程方便做的冗余判断）</p>
-<p><img src="/image-20220712012108900.png" srcset="/img/loading.gif" lazyload alt="image-20220712012108900"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220712012108900.png" srcset="/img/loading.gif" lazyload alt="image-20220712012108900"></p>
 <ul>
 <li><strong>Using join buffer：</strong>在连接查询时，当被驱动表不能有效的利用索引时，MySQL会为其分配一块名为连接缓冲区（join buffer）的内存来加快查询速度</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN  <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t1, t2 <span class="hljs-keyword">WHERE</span> t1.content <span class="hljs-operator">=</span> t2.content;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220710182356817.png" srcset="/img/loading.gif" lazyload alt="image-20220710182356817"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710182356817.png" srcset="/img/loading.gif" lazyload alt="image-20220710182356817"></p>
 <p>下面这个例子就是被驱动表使用了索引：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">EXPLAIN <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t_emp, t_dept <span class="hljs-keyword">WHERE</span> t_dept.id <span class="hljs-operator">=</span> t_emp.deptId;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/image-20220710182524371.png" srcset="/img/loading.gif" lazyload alt="image-20220710182524371"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20220710182524371.png" srcset="/img/loading.gif" lazyload alt="image-20220710182524371"></p>
 <h3 id="133-MySQL数据库cpu飙升的话你会如何分析"><a href="#133-MySQL数据库cpu飙升的话你会如何分析" class="headerlink" title="133 MySQL数据库cpu飙升的话你会如何分析"></a>133 MySQL数据库cpu飙升的话你会如何分析</h3><p>重点是定位问题。</p>
 <p>先</p>
 <p><strong>1 使用top观察mysqld的cpu利用率</strong></p>
@@ -2022,15 +2021,15 @@
 <p><strong>5 检查一下是否有慢查询</strong></p>
 <p><strong>6 pref top</strong></p>
 <p>使用pref 工具分析哪些函数引发的cpu过高来追踪定位</p>
-<p><img src="/image-20221106160437906.png" srcset="/img/loading.gif" lazyload alt="image-20221106160437906"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20221106160437906.png" srcset="/img/loading.gif" lazyload alt="image-20221106160437906"></p>
 <h3 id="134-有没有进行过分库分表？"><a href="#134-有没有进行过分库分表？" class="headerlink" title="134 有没有进行过分库分表？"></a>134 有没有进行过分库分表？</h3><h4 id="135-什么是分库分表？"><a href="#135-什么是分库分表？" class="headerlink" title="135 	什么是分库分表？"></a>135 	什么是分库分表？</h4><p><strong>垂直分库</strong></p>
 <p>一个数据库由很多表的构成，每个表对应着<strong>不同的业务</strong>，垂直切分是指按照业务将表进行分类，分布到不同 的数据库上面，这样也就将数据或者说压力分担到不同的库上面，如下图：       </p>
-<p>​                <img src="/111.jpg" srcset="/img/loading.gif" lazyload>   </p>
+<p>​                <img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/111.jpg" srcset="/img/loading.gif" lazyload>   </p>
 <p>系统被切分成了，用户，订单交易，支付几个模块。</p>
 <p><strong>水平分表</strong></p>
 <p>把一张表里的内容按照不同的规则 写到不同的库里</p>
 <p>相对于垂直拆分，水平拆分不是将表做分类，而是按照某个字段的某种规则来分散到多个库之中，每个表中包含一部分数据。简单来说，我们可以将数据的水平切分理解为是按照数据行的切分，就是将表中的某些行切分 到一个数据库，而另外的某些行又切分到其他的数据库中，如图： </p>
-<p><img src="/222.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/222.jpg" srcset="/img/loading.gif" lazyload></p>
 <h4 id="136-什么时候进行分库分表？有没有配合es使用经验？"><a href="#136-什么时候进行分库分表？有没有配合es使用经验？" class="headerlink" title="136 	什么时候进行分库分表？有没有配合es使用经验？"></a>136 	什么时候进行分库分表？有没有配合es使用经验？</h4><ol>
 <li>能不分就不分</li>
 <li>单机性能下降明显的时候</li>
@@ -2044,7 +2043,7 @@
 <li>伪装成mysql服务器，代理用户请求转发到真实服务器</li>
 <li>基于本地aop实现，拦截sql，改写，路由和结果归集处理。</li>
 </ol>
-<h4 id="138-用过哪些分库分表工具？"><a href="#138-用过哪些分库分表工具？" class="headerlink" title="138 	用过哪些分库分表工具？"></a>138 	用过哪些分库分表工具？</h4><p><img src="/25723371_16499183725J8d.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h4 id="138-用过哪些分库分表工具？"><a href="#138-用过哪些分库分表工具？" class="headerlink" title="138 	用过哪些分库分表工具？"></a>138 	用过哪些分库分表工具？</h4><p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/25723371_16499183725J8d.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <h4 id="139-分库分表后可能会有哪些问题？"><a href="#139-分库分表后可能会有哪些问题？" class="headerlink" title="139 	分库分表后可能会有哪些问题？"></a>139 	分库分表后可能会有哪些问题？</h4><p>经典的问题</p>
 <ol>
 <li>执行效率明显降低</li>
@@ -2053,8 +2052,8 @@
 <li>产生跨库join</li>
 <li>代理类中间件网络io成为瓶颈</li>
 </ol>
-<h4 id="140-说一下读写分离常见方案？"><a href="#140-说一下读写分离常见方案？" class="headerlink" title="140 	说一下读写分离常见方案？"></a>140 	说一下读写分离常见方案？</h4><p><img src="/image-20221106171251532.png" srcset="/img/loading.gif" lazyload alt="image-20221106171251532"></p>
-<p><img src="/image-20221106171945037.png" srcset="/img/loading.gif" lazyload alt="image-20221106171945037"></p>
+<h4 id="140-说一下读写分离常见方案？"><a href="#140-说一下读写分离常见方案？" class="headerlink" title="140 	说一下读写分离常见方案？"></a>140 	说一下读写分离常见方案？</h4><p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20221106171251532.png" srcset="/img/loading.gif" lazyload alt="image-20221106171251532"></p>
+<p><img src="/2023/04/03/Mysql%E9%9D%A2%E8%AF%95%E9%A2%98/image-20221106171945037.png" srcset="/img/loading.gif" lazyload alt="image-20221106171945037"></p>
 <h3 id="141-为什么要使用视图？-什么是视图？"><a href="#141-为什么要使用视图？-什么是视图？" class="headerlink" title="141 为什么要使用视图？ 什么是视图？"></a>141 为什么要使用视图？ 什么是视图？</h3><p>视图定义：<br>1、视图是一个虚表，是从一个或几个基本表（或视图）导出的表。<br>2、只存放视图的定义，不存放视图对应的数据。<br>3、基表中的数据发生变化，从视图中查询出的数据也随之改变。<br>视图的作用：<br>1、视图能够简化用户的操作<br>2、视图使用户能以多种角度看待同一数据<br>3、视图对重构数据库提供了一定程度的逻辑独立性<br>4、视图能够对机密数据提供安全保护<br>5、适当的利用视图可以更清晰的表达查询</p>
 <h3 id="142-什么是存储过程？有没有使用过？"><a href="#142-什么是存储过程？有没有使用过？" class="headerlink" title="142 什么是存储过程？有没有使用过？"></a>142 什么是存储过程？有没有使用过？</h3><p>项目中禁止使用存储过程，存储过程难以调试和扩展，更没有移植性</p>
 <h3 id="143-有没有使用过外键？有什么需要注意的地方？"><a href="#143-有没有使用过外键？有什么需要注意的地方？" class="headerlink" title="143 有没有使用过外键？有什么需要注意的地方？"></a>143 有没有使用过外键？有什么需要注意的地方？</h3><p>不得使用外键与级联，一切外键概念必须在应用层解决。 </p>
